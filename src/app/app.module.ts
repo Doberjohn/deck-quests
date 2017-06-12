@@ -10,7 +10,7 @@ import {TabsPage} from '../pages/tabs/tabs';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import {CardComponent} from "../components/card/card";
+import {Card} from '../directives/card/card';
 
 @NgModule({
     declarations: [
@@ -19,7 +19,7 @@ import {CardComponent} from "../components/card/card";
         ContactPage,
         HomePage,
         TabsPage,
-        CardComponent
+        Card
     ],
     imports: [
         BrowserModule,

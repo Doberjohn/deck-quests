@@ -1,9 +1,12 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <card [card-data]= pouch></card>
+    <div class="card centered">
+        <div class="card-title">{{card.text}}</div>
+        <div class="card-type">{{card.category}}</div>
+    </div>
 </ion-content>
