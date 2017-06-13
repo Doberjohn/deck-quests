@@ -18,4 +18,15 @@ export class Card {
         this.category = category;
         this.choices = [];
     }
+    
+    addNewChoice(text: string) {
+        let currentNumberOfChoices = this.choices.length + 1;
+        let choice = {
+            id: currentNumberOfChoices,
+            code: this.code + '-CH' + currentNumberOfChoices,
+            text: currentNumberOfChoices + ') ' + text,
+            events: []
+        };
+        this.choices.push(choice);
+    }
 }

@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/v2/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -18,4 +17,24 @@
 .centered {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.item-ios.item-block .item-inner {
+  border: none;
+}
+
+.item-md.item-block .item-inner {
+  border: none;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
 }

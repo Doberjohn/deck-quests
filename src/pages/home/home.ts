@@ -69,8 +69,35 @@ export class HomePage {
     // };
 
     card: Card;
+    selectedId = 1;
 
     constructor(public navCtrl: NavController) {
         this.card = new Card(1, 'PF', 'You find a pouch on the ground', 'Event');
+        this.card.addNewChoice('Examine the pouch carefully');
+        this.card.addNewChoice('Open the pouch');
+        this.card.addNewChoice('Take the pouch with you');
+        this.card.addNewChoice('Leave the pouch behind you');
+
+        console.log(this.card);
+    }
+
+
+    test(index) {
+        this.selectedId = index;
+    }
+
+    getClass(index) {
+        let style;
+        if (this.selectedId === index) {
+            style = {
+                'border': '1px solid #4CAF50',
+                'background-color': '#4CAF50'
+            }
+        } else {
+            style = {
+                'border': '1px solid #4CAF50',
+            }
+        }
+        return style
     }
 }
