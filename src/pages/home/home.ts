@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {Card} from "../../directives/card/card";
 
+import * as card_data from '../../assets/cards_data/english/PF.json';
+
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
@@ -69,26 +71,29 @@ export class HomePage {
     // };
 
     card: Card;
-    selectedId = 1;
+    selectedChoice: number;
 
     constructor(public navCtrl: NavController) {
-        this.card = new Card(1, 'PF', 'You find a pouch on the ground', 'Event');
-        this.card.addNewChoice('Examine the pouch carefully');
-        this.card.addNewChoice('Open the pouch');
-        this.card.addNewChoice('Take the pouch with you');
-        this.card.addNewChoice('Leave the pouch behind you');
+
+        let data = <any>card_data;
+
+        this.card = new Card(data.id, data.code, data.text, data.category, data.setNumber, data.illustrator);
+        this.card.addNewChoice('Open it');
+        this.card.addNewChoice('Examine it carefully');
+        this.card.addNewChoice('Store it in your inventory');
+        this.card.addNewChoice('Leave it and continue your quest');
 
         console.log(this.card);
     }
 
 
-    test(index) {
-        this.selectedId = index;
+    changeChoice(choice) {
+        this.selectedChoice = choice;
     }
 
-    getClass(index) {
+    isChoiceSelected(index) {
         let style;
-        if (this.selectedId === index) {
+        if (this.selectedChoice === index) {
             style = {
                 'border': '1px solid #4CAF50',
                 'background-color': '#4CAF50'
@@ -98,6 +103,6 @@ export class HomePage {
                 'border': '1px solid #4CAF50',
             }
         }
-        return style
+        return style;
     }
 }

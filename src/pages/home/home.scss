@@ -5,16 +5,47 @@
   padding: 3px;
 }
 
-.card-title {
+.card-text {
   position: relative;
-  top: 95px;
+  top: 90px;
   text-align: center;
 }
 
-.card-type {
+.card-category {
   position: relative;
-  top: 150px;
   text-align: center;
+  font-weight: 600;
+  bottom: 37px;
+  right: 3px;
+  font-size: 14px;
+  font-style: italic;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  width: 45px;
+}
+
+.card-number {
+  position: relative;
+  top: 132px;
+  left: 109px;
   font-size: 10px;
   font-weight: 600;
+}
+
+.card-illustrator {
+  position: relative;
+  top: 116px;
+  right: 2px;
+  font-size: 7px;
+  font-weight: 600;
+}
+
+.common {
+  width: 7px;
+  height: 7px;
+  background: black;
+  border-radius: 50px;
+  position: relative;
+  bottom: 10px;
+  left: 28px;
 }

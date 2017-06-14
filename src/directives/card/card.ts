@@ -5,17 +5,9 @@ import {Directive} from '@angular/core';
 })
 export class Card {
 
-    private id: number;
-    private code: string;
-    private text: string;
-    private category: string;
-    private choices: any;
+    private choices;
 
-    constructor(id: number, code: string, text: string, category: string) {
-        this.id = id;
-        this.code = code;
-        this.text = text;
-        this.category = category;
+    constructor(private id: number, private code: string, private text: string, private category: string, private setNumber: string, private illustrator: string) {
         this.choices = [];
     }
     

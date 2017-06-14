@@ -6,10 +6,11 @@
 
 <ion-content padding>
     <div class="card centered mb-20">
-        <div class="card-title">{{card.text}}</div>
-        <div class="card-type">{{card.category}}</div>
+        <div class="card-text">{{card.text}}</div>
+        <div class="card-category">{{card.category}}</div>
+        <div class="card-number">{{card.setNumber}} <div class="common"></div></div>
     </div>
-    <ion-item class="borderless mt-10" *ngFor="let choice of card.choices" (click)="test(choice.id)" [ngStyle]="getClass(choice.id)">
+    <ion-item class="borderless mt-10" *ngFor="let choice of card.choices" (click)="changeChoice(choice.id)" [ngStyle]="isChoiceSelected(choice.id)">
         {{choice.text}}
     </ion-item>
 </ion-content>
