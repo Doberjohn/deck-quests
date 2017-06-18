@@ -5,12 +5,14 @@
 </ion-header>
 
 <ion-content padding>
-    <div class="card centered mb-20">
-        <div class="card-text">{{card.text}}</div>
-        <div class="card-category">{{card.category}}</div>
-        <div class="card-number">{{card.setNumber}} <div class="common"></div></div>
+    <div *ngIf="pf">
+        <div [class]="getRarityClass()" class="centered mb-20">
+            <div class="card-image"></div>
+            <div class="card-text">{{pf.text}}</div>
+            <div class="card-number">{{pf.numberInSet}}</div>
+        </div>
+        <div *ngFor="let choice of pf.choices" (click)="changeChoice(choice.id)" class="borderless" [ngClass]="isChoiceSelected(choice.id)">
+            {{choice.text}}
+        </div>
     </div>
-    <ion-item class="borderless mt-10" *ngFor="let choice of card.choices" (click)="changeChoice(choice.id)" [ngStyle]="isChoiceSelected(choice.id)">
-        {{choice.text}}
-    </ion-item>
 </ion-content>

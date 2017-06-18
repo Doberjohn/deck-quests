@@ -11,6 +11,8 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {Card} from '../directives/card/card';
+import {CardSetsProvider} from '../providers/card-set/card-set';
+import {HttpModule} from "@angular/http";
 
 @NgModule({
     declarations: [
@@ -23,6 +25,7 @@ import {Card} from '../directives/card/card';
     ],
     imports: [
         BrowserModule,
+        HttpModule,
         IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
@@ -36,7 +39,8 @@ import {Card} from '../directives/card/card';
     providers: [
         StatusBar,
         SplashScreen,
-        {provide: ErrorHandler, useClass: IonicErrorHandler}
+        {provide: ErrorHandler, useClass: IonicErrorHandler},
+        CardSetsProvider
     ]
 })
 export class AppModule {

@@ -1,24 +1,40 @@
 import {Directive} from '@angular/core';
+import {CardSetsProvider} from '../../providers/card-set/card-set';
 
 @Directive({
-    selector: '[card]' // Attribute selector
+    selector: '[card]', // Attribute selector,
 })
 export class Card {
 
-    private choices;
+    private id: number;
+    private text: string;
+    private choices: any;
+    private rarity: string;
+    private numberInSet: string;
 
-    constructor(private id: number, private code: string, private text: string, private category: string, private setNumber: string, private illustrator: string) {
-        this.choices = [];
+    constructor(card_data: '') {
+        let data = <any>card_data;
+
+        this.text = data.text;
+        this.numberInSet = data.numberInSet + "/" + (new CardSetsProvider()).getNumberOfCardsInSet(data.set.id);
+        this.rarity = data.rarity;
+        this.choices = data.choices;
     }
-    
-    addNewChoice(text: string) {
-        let currentNumberOfChoices = this.choices.length + 1;
-        let choice = {
-            id: currentNumberOfChoices,
-            code: this.code + '-CH' + currentNumberOfChoices,
-            text: currentNumberOfChoices + ') ' + text,
-            events: []
-        };
-        this.choices.push(choice);
+
+    getRarityClass() {
+        return this.rarity;
+    }
+
+    triggerEvent(choiceId: number) {
+        let events = this.choices[choiceId-1].events;
+        let chance: number = Math.floor((Math.random() * 100) + 1);
+        let accumulatedChance = 0;
+        for (let i=0; i<events.length; i++) {
+            accumulatedChance += events[i].chance;
+            if (chance <= accumulatedChance) {
+                console.log(events[i].text);
+                return events[i].text;
+            }
+        }
     }
 }
