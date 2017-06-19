@@ -12,6 +12,7 @@ export class HomePage {
 
     pf: Card;
     selectedChoice: number;
+    timer: any;
 
     constructor(private http: Http) {
         this.http.get("https://jsonblob.com/api/jsonBlob/e10a0d8c-54dc-11e7-ae4c-f3f9519379da")
@@ -24,6 +25,7 @@ export class HomePage {
     changeChoice(choice) {
         this.selectedChoice = choice;
         $(".card-text").text('');
+        clearTimeout(this.timer);
         this.showText(".card-text", this.pf.triggerEvent(this.selectedChoice), 0, 50);
     }
 
@@ -43,7 +45,7 @@ export class HomePage {
         let that = this;
         if (index < message.length) {
             $(target).append(message[index++]);
-            setTimeout(function () {
+            this.timer = setTimeout(function () {
                 that.showText(target, message, index, interval);
             }, interval);
         }

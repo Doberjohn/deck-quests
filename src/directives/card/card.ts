@@ -50,6 +50,6 @@ export class Card {
             chancesArray.push(accumulatedChance);
         }
 
-        return chancesArray.sort(function(a, b){return a-b});;
+        return chancesArray.sort(function(a, b){return a-b});
     }
 }
