@@ -9,12 +9,12 @@
 }
 
 @mixin choice($rarity) {
-  color: black;
+  color: white;
   height: 30px;
 }
 
 @mixin choice_selected($rarity, $text_color) {
-  color: color($colors, $rarity);
+  color: #EBC944;
   height: 30px;
 }
 
@@ -51,14 +51,12 @@
   position: relative;
   padding: 3px;
   font-size: 8px;
+  font-weight: 600;
 }
 
 .card-number {
   position: absolute;
-  top: 209px;
-  margin-left: 134px;
-  text-align: center;
+  top: 207px;
+  margin-left: 126px;
   font-size: 5px;
-  font-weight: 600;
-  height: 10px;
 }

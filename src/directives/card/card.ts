@@ -26,15 +26,30 @@ export class Card {
     }
 
     triggerEvent(choiceId: number) {
-        let events = this.choices[choiceId-1].events;
+        let events = this.choices[choiceId].events;
         let chance: number = Math.floor((Math.random() * 100) + 1);
-        let accumulatedChance = 0;
-        for (let i=0; i<events.length; i++) {
-            accumulatedChance += events[i].chance;
-            if (chance <= accumulatedChance) {
-                console.log(events[i].text);
+        let chancesArray = this.calculateChances (events);
+
+        console.log(chance);
+        console.log(chancesArray);
+
+        for (let i=0; i<chancesArray.length; i++) {
+            if (chance <= chancesArray[i]) {
                 return events[i].text;
             }
         }
+    }
+
+    calculateChances(events) {
+        let chancesArray: any = [];
+        let accumulatedChance = 0;
+
+        for (let i=0; i< events.length; i++) {
+            accumulatedChance += events[i].chance;
+
+            chancesArray.push(accumulatedChance);
+        }
+
+        return chancesArray.sort(function(a, b){return a-b});;
     }
 }

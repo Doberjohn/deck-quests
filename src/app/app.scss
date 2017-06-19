@@ -26,3 +26,7 @@
 .mb-20 {
   @include set_margin('bottom', 20);
 }
+
+.mb-30 {
+  @include set_margin('bottom', 30);
+}

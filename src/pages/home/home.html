@@ -1,17 +1,11 @@
-<ion-header>
-    <ion-navbar>
-        <ion-title>Home</ion-title>
-    </ion-navbar>
-</ion-header>
-
-<ion-content padding>
+<ion-content padding style="background: #093145;">
     <div *ngIf="pf">
-        <div [class]="getRarityClass()" class="centered mb-20">
+        <div [ngClass]="getRarityClass()" class="centered mb-20">
             <div class="card-image"></div>
             <div class="card-text">{{pf.text}}</div>
             <div class="card-number">{{pf.numberInSet}}</div>
         </div>
-        <div *ngFor="let choice of pf.choices" (click)="changeChoice(choice.id)" class="borderless" [ngClass]="isChoiceSelected(choice.id)">
+        <div *ngFor="let choice of pf.choices; let i = index" (click)="changeChoice(i)" class="borderless" [ngClass]="isChoiceSelected(i)">
             {{choice.text}}
         </div>
     </div>
