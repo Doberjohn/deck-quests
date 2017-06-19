@@ -28,11 +28,10 @@ export class HomePage {
     }
 
     isChoiceSelected(index) {
-        let rarity = this.pf.getRarityClass();
         if (this.selectedChoice === index) {
-            return rarity + '-choice-selected'
+            return 'choice-selected'
         } else {
-            return rarity + '-choice'
+            return 'choice'
         }
     }
 
