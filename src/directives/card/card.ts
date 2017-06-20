@@ -11,6 +11,8 @@ export class Card {
     private choices: any;
     private rarity: string;
     private numberInSet: string;
+    private type: string;
+    private illustrator: string;
 
     constructor(card_data: '') {
         let data = <any>card_data;
@@ -18,6 +20,8 @@ export class Card {
         this.text = data.text;
         this.numberInSet = data.numberInSet + "/" + (new CardSetsProvider()).getNumberOfCardsInSet(data.set.id);
         this.rarity = data.rarity;
+        this.type = data.type;
+        this.illustrator = data.illustrator;
         this.choices = data.choices;
     }
 

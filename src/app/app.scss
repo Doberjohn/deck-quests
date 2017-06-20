@@ -23,6 +23,18 @@
   @include set_margin('top', 20);
 }
 
+.mt-30 {
+  @include set_margin('top', 30);
+}
+
+.mb-2 {
+  @include set_margin('bottom', 2);
+}
+
+.mb-10 {
+  @include set_margin('bottom', 10);
+}
+
 .mb-20 {
   @include set_margin('bottom', 20);
 }

@@ -10,9 +10,9 @@ export class CardSetsProvider {
         this.sets = [
             {
                 id: 1,
-                name: "Basic Set",
+                name: "Classic Set",
                 numberOfCards: 138,
-                releaseData: null
+                releaseDate: null
             }
         ]
     }
