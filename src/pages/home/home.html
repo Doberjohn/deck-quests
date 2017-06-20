@@ -6,7 +6,7 @@
             <div class="card-number">{{pf.numberInSet}}</div>
         </div>
         <div *ngFor="let choice of pf.choices; let i = index" (click)="changeChoice(i)" class="borderless" [ngClass]="isChoiceSelected(i)">
-            {{choice.text}}
+            {{i + 1}}) {{choice.text}}
         </div>
     </div>
 </ion-content>

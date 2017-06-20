@@ -12,7 +12,8 @@ export class HomePage {
 
     pf: Card;
     selectedChoice: number;
-    timer: any;
+    timer: any = null;
+    timerInterval: number;
 
     constructor(private http: Http) {
         this.http.get("https://jsonblob.com/api/jsonBlob/e10a0d8c-54dc-11e7-ae4c-f3f9519379da")
@@ -23,10 +24,14 @@ export class HomePage {
     }
 
     changeChoice(choice) {
-        this.selectedChoice = choice;
-        $(".card-text").text('');
-        clearTimeout(this.timer);
-        this.showText(".card-text", this.pf.triggerEvent(this.selectedChoice), 0, 50);
+        if (this.timer === null) {
+            this.timerInterval = 50;
+            this.selectedChoice = choice;
+            $(".card-text").text('');
+            this.showText(".card-text", this.pf.triggerEvent(this.selectedChoice), 0);
+        } else {
+            this.timerInterval = 10;
+        }
     }
 
     isChoiceSelected(index) {
@@ -41,13 +46,15 @@ export class HomePage {
         return this.pf.getRarityClass() + "-card";
     }
 
-    showText(target, message, index, interval) {
+    showText(target, message, index) {
         let that = this;
         if (index < message.length) {
             $(target).append(message[index++]);
             this.timer = setTimeout(function () {
-                that.showText(target, message, index, interval);
-            }, interval);
+                that.showText(target, message, index);
+            }, this.timerInterval);
+        } else {
+            this.timer = null;
         }
     }
 }
