@@ -13,10 +13,12 @@ export class Card {
     private numberInSet: string;
     private type: string;
     private illustrator: string;
+    private description: string;
 
     constructor(card_data: '') {
         let data = <any>card_data;
 
+        this.description = data.long_description;
         this.text = data.text;
         this.numberInSet = data.numberInSet + "/" + (new CardSetsProvider()).getNumberOfCardsInSet(data.set.id);
         this.rarity = data.rarity;

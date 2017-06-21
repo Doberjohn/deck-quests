@@ -1,15 +1,13 @@
 <ion-content padding style="background: #093145;">
     <div *ngIf="pf">
-        <div class="card-outer centered mb-20">
+        <div class="card centered mb-20">
             <div class="mb-2"></div>
-            <div class="card-title">A Mysterious Box</div>
-            <div class="card-image"></div>
-            <div class="card-category">{{pf.type}}</div>
+            <div class="card-title">{{pf.description}}</div>
             <div class="card-text">{{pf.text}}</div>
             <div class="card-number">{{pf.numberInSet}} &nbsp;&nbsp; <span style="font-style: italic;">Illus. {{pf.illustrator}}</span></div>
         </div>
 
-        <div *ngFor="let choice of pf.choices; let i = index" (click)="changeChoice(i)" class="borderless" [ngClass]="isChoiceSelected(i)">
+        <div *ngFor="let choice of pf.choices; let i = index" (press)="changeChoice(i)" class="borderless" [ngClass]="isChoiceSelected(i)">
             {{i + 1}}) {{choice.text}}
         </div>
     </div>
