@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Card} from "../../directives/card/card";
 import * as $ from 'jquery'
 
-import {Http, Response,} from '@angular/http';
+import {Http, Response} from '@angular/http';
 
 @Component({
     selector: 'page-home',
