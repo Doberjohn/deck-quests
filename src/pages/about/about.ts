@@ -10,42 +10,37 @@ import {Response, Http} from "@angular/http";
 })
 export class AboutPage {
 
-    pf: Card;
+    card: Card;
 
-    constructor(public navCtrl: NavController, public alertCtrl: AlertController, private http: Http) {
+    constructor(private http: Http) {
 
     }
 
     ngOnInit() {
-        var that = this;
-        var draggable = document.getElementById('draggable');
-        draggable.addEventListener('touchmove', function (event) {
-            var touch = event.targetTouches[0];
+        $('body').click(function(evt){
+            if(!$(evt.target).is('#card')) {
+                $('#card').css({
+                    'border': 'none'
+                });
+            }
+        });
+    }
 
-            // Place element where the finger is
-            draggable.style.left = touch.pageX - 130 + 'px';
-            draggable.style.top = touch.pageY - 177 + 'px';
-            event.preventDefault();
-        }, false);
-
-        draggable.addEventListener('touchend', function (event) {
-            that.pf = null;
-            $('#draggable').css({
-                'transform': 'scale(0.5,0.5)',
-                'border': 'none'
-            });
-        }, false);
+    highlightCard() {
+        $('#card').css({
+            'border': '5px solid black'
+        });
     }
 
     previewCard() {
-        this.http.get("https://jsonblob.com/api/jsonBlob/e10a0d8c-54dc-11e7-ae4c-f3f9519379da")
-            .map(response => response.json())
-            .subscribe((res: Response) => {
-                this.pf = new Card(<any>res);
-                $('#draggable').css({
-                    'transform': 'none',
-                    'border': '10px solid black'
-                });
-            });
+        new Card("https://jsonblob.com/api/jsonBlob/e10a0d8c-54dc-11e7-ae4c-f3f9519379da", this.http);
+    }
+
+    closePreview() {
+        $('#draggable').css({
+            'transform': 'scale(0.5,0.5)',
+            'border': 'none'
+        });
+        this.card = null;
     }
 }

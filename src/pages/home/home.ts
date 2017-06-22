@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Card} from "../../directives/card/card";
 import * as $ from 'jquery'
-
-import {Http, Response} from '@angular/http';
+import {Player} from "../../directives/player/player";
+import {Http} from "@angular/http";
 
 @Component({
     selector: 'page-home',
@@ -10,17 +10,18 @@ import {Http, Response} from '@angular/http';
 })
 export class HomePage {
 
-    pf: Card;
+    player: Player;
+    card: Card;
     selectedChoice: number;
     timer: any = null;
     timerInterval: number;
 
     constructor(private http: Http) {
-        this.http.get("https://jsonblob.com/api/jsonBlob/e10a0d8c-54dc-11e7-ae4c-f3f9519379da")
-            .map(response => response.json())
-            .subscribe((res: Response) => {
-                this.pf = new Card(<any>res);
-            });
+        this.card = new Card("https://jsonblob.com/api/jsonBlob/e10a0d8c-54dc-11e7-ae4c-f3f9519379da", this.http);
+    }
+
+    setCardArtwork() {
+        return {'background-image': 'url(' + this.card.getImage() + ')'}
     }
 
     changeChoice(choice) {
@@ -28,7 +29,7 @@ export class HomePage {
             this.timerInterval = 50;
             this.selectedChoice = choice;
             $(".card-text").text('');
-            this.showText(".card-text", this.pf.triggerEvent(this.selectedChoice), 0);
+            this.showText(".card-text", this.card.triggerEvent(this.selectedChoice), 0);
         } else {
             this.timerInterval = 10;
         }
@@ -40,10 +41,6 @@ export class HomePage {
         } else {
             return 'choice'
         }
-    }
-
-    getRarityClass() {
-        return this.pf.getRarityClass() + "-card";
     }
 
     showText(target, message, index) {

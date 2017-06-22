@@ -1,3 +1,44 @@
 page-contact {
 
+  .menu-tile-story {
+    height: 33.33%;
+    color: white;
+    text-align: center;
+    font-size: 2.5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(https://s-media-cache-ak0.pinimg.com/originals/8d/c1/ff/8dc1ffca3629c5d8cf8dca40912df697.jpg);
+  }
+  .menu-tile-deck {
+    height: 33.33%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(https://cdnb.artstation.com/p/assets/images/images/002/648/641/large/roger-matallana-exterior-cyberpunk-final2.jpg?1464096465);
+    color: white;
+    text-align: center;
+    font-size: 2.5em;
+  }
+  .menu-tile-credits {
+    height: 33.33%;
+    color: white;
+    text-align: center;
+    font-size: 2.5em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(http://4.bp.blogspot.com/-scDYZhZmXU4/USZnAFlD8vI/AAAAAAAAAfc/SeOfmrt3S9U/s1600/BogdanMRK_A+life+theory_The+Pyramid.jpg)
+  }
+
+  .menu-text-story {
+    position: relative;
+    background-color: rgba(0,0,0,0.5);
+    padding-top: 22%;
+    height: 100%;
+  }
+
+  .menu-text {
+    position: relative;
+    background-color: rgba(0,0,0,0.7);
+    padding-top: 22%;
+    height: 100%;
+  }
 }

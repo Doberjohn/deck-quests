@@ -1,11 +1,11 @@
 <ion-content padding style="background: #093145;">
 
-    <div id="draggable" class="card" style="border: none; transform: scale(0.5,0.5)" (press)="previewCard()">
-        <div *ngIf="pf">
+    <div id="card" class="card" style="border: none; transform: scale(0.5,0.5)" (click)="highlightCard()">
+        <div *ngIf="card">
             <div class="mb-2"></div>
-            <div class="card-title">{{pf.description}}</div>
-            <div class="card-text">{{pf.text}}</div>
-            <div class="card-number">{{pf.numberInSet}} &nbsp;&nbsp; <span style="font-style: italic;">Illus. {{pf.illustrator}}</span></div>
+            <div class="card-title">{{card.description}}</div>
+            <div class="card-text">{{card.text}}</div>
+            <div class="card-number">{{card.numberInSet}} &nbsp;&nbsp; <span style="font-style: italic;">Illus. {{card.illustrator}}</span></div>
         </div>
     </div>
 </ion-content>

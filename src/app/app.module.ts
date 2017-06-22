@@ -12,6 +12,9 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {Card} from '../directives/card/card';
 import {CardSetsProvider} from '../providers/card-set/card-set';
 import {HttpModule} from "@angular/http";
+import {Player} from '../directives/player/player';
+import {NativePageTransitions} from '@ionic-native/native-page-transitions';
+
 
 @NgModule({
     declarations: [
@@ -19,7 +22,8 @@ import {HttpModule} from "@angular/http";
         AboutPage,
         ContactPage,
         HomePage,
-        Card
+        Card,
+        Player
     ],
     imports: [
         BrowserModule,
@@ -37,7 +41,8 @@ import {HttpModule} from "@angular/http";
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        CardSetsProvider
+        CardSetsProvider,
+        NativePageTransitions
     ]
 })
 export class AppModule {
